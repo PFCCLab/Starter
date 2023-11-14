@@ -9,6 +9,11 @@
 - `Meeting/` : 存放各学员参与「飞桨启航计划集训营」集训课程时的纪要、答疑记录等。
 - `Reports/` :  存放各学员参与「飞桨启航计划集训营」项目时的详细双周周报。
 
+> [!IMPORTANT]  
+> 周报提交指南 ➡️ https://github.com/PFCCLab/Starter/issues/3
+> 周报提交登记 ➡️ https://github.com/PFCCLab/Starter/issues/4
+
+
 ## 飞桨启航计划简介
 **「启航计划」** 是 **百度飞桨社区** 发起的远程项目，也是「护航计划」的前置活动（不了解护航计划请看这里 ➡️ [护航计划说明](https://github.com/PFCCLab/Camp)）。我们以开展**集训营**的形式，鼓励开发者积极参与开源项目，以此提升自己的代码实践能力，与社区共同成长 💪。
 
