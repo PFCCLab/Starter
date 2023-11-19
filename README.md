@@ -1,5 +1,5 @@
 # 飞桨启航计划集训营周报 & 资料管理
-**[🚀 飞桨开源框架](https://github.com/PaddlePaddle/Paddle) | [🧰 飞桨开发套件](https://github.com/PaddlePaddle/PaddleOCR) | [⛵ 飞桨启航航计划集训营]( xxxxxx )**
+**[🚀 飞桨开源框架](https://github.com/PaddlePaddle/Paddle) | [🧰 飞桨开发套件](https://github.com/PaddlePaddle/PaddleOCR) | [⛵ 飞桨启航航计划集训营](https://github.com/PaddlePaddle/Paddle/issues/58497)**
 
 🤔 **我们为什么需要这个 repo ？**
 - 本 repo 用于「飞桨启航计划集训营」的学员双周周报提交、资料管理、课程记录保存和技术方案探讨。希望这个 repo 能够记录下你在克服各种难题时的成长历程，以及你不断进步的足迹。享受这个过程吧！ 
