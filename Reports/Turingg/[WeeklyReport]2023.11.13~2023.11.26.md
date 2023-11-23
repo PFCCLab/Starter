@@ -4,7 +4,7 @@
 
 ### 开发中的快乐开源任务
 
-[Docathon] 中文文档 copy-from 清理 #6300
+[Docathon] 中文文档 copy-from 清理 Issue链接:(https://github.com/PaddlePaddle/docs/issues/6300)
 
 ### 本双周工作
 
@@ -30,4 +30,4 @@
 ### 未来双周计划
 
 1. 完成打卡任务三
-2. 完成一个自己报名的任务：快乐开源项目任务（Paddle Docathon中文文档 copy-from 清理 #6300）
+2. 完成一个自己报名的任务：快乐开源项目任务（Paddle Docathon中文文档 copy-from 清理 Issue链接:(https://github.com/PaddlePaddle/docs/issues/6300)
