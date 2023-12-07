@@ -24,5 +24,4 @@
 
 ### 未来双周计划
 
-1. 研究大模型任务：新增Mixture Canvas pipeline
-2. 完成【Docathon】补充缺失的中文 API 文档中自己报名的任务（https://github.com/PaddlePaddle/docs/issues/6193）
+1. 完成【Docathon】补充缺失的中文 API 文档中自己报名的任务（https://github.com/PaddlePaddle/docs/issues/6193）
