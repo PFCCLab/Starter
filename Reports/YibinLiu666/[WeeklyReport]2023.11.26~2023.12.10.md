@@ -14,7 +14,7 @@
 
 3. 提交黑客松第6题代码 https://github.com/PaddlePaddle/Paddle/pull/59674
 
-3. **问题疑惑与解答**
+4. **问题疑惑与解答**
 
 无
 
