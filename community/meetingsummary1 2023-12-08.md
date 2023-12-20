@@ -23,7 +23,7 @@
 
    > 参考资料：
    >
-   > - ![community/docs_group/images/插件参考.png](../path/to/img)
+   > - ![xxxx](../docs_group/images/插件参考.png)
 
 * 文档仓库克隆和bug修复任务
 
