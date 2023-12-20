@@ -23,7 +23,7 @@
 
    > 参考资料：
    >
-   > - 
+   > - [image by Turingg · Pull Request #65 · PFCCLab/Starter (github.com)](https://github.com/PFCCLab/Starter/pull/65)
 
 * 文档仓库克隆和bug修复任务
 
