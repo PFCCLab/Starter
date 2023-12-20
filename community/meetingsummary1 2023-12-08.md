@@ -3,7 +3,12 @@
 ## 会议信息
 
 * 会议时间：2023/12/08 17:00-18:00 （GMT+08:00）中国标准时间-北京
-* 参会人员：Turingg，entired，ooooo-create，SigureMo，Kaedeharai，sunzhongkai588
+* 参会人员：
+  * [Turingg](https://github.com/Turingg)
+  * [entired](https://github.com/entired)
+  * [ooooo-create](https://github.com/ooooo-create)
+  * [Kaedeharai](https://github.com/Kaedeharai)
+  * [sunzhongkai588](https://github.com/sunzhongkai588)
 * 轮值主席：sunzhongkai588（孙钟恺）
 
 ## 会议议题
