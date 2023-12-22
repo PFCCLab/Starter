@@ -5,6 +5,8 @@
 ### 开发中的快乐开源任务
 
 补充缺失中文文档
+https://github.com/PaddlePaddle/docs/pull/6390
+https://github.com/PaddlePaddle/docs/pull/6416
 
 ### 本双周工作
 
