@@ -1,5 +1,13 @@
 ## PHI算子库kernel注册全流程——以bitwise_add算子为例
 
+> 在[Kernel选择分发体系梳理与优化](https://github.com/PaddlePaddle/community/blob/master/pfcc/paddle-code-reading/kernel_selection/20221130_kernel_selection.md)中，作者主要在写老算子体系，以及调用计算流程，不过对PHI算子注册的机制没有详细解读，提到
+>
+> > **phi 中的 kernel 注册**：较为复杂，仅了解 ConstructKernel 函数将 kernel 注册到了 KernelFactory
+>
+> 而在[飞桨高可复用算子库 PHI 设计文档](https://github.com/PaddlePaddle/docs/blob/develop/docs/design/phi/design_cn.md)中主要阐述了整个PHI库的整体设计，在一些关键部分有做解读。
+>
+> 这篇就以具体的例子，尝试了逐行走通整个算子注册流程。
+
 以`bitwise_add`这个算子为例。例如我们能在`.cc`和`.cu`文件里面看到：
 
 ```cpp
