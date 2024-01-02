@@ -12,8 +12,6 @@
 
    - https://github.com/PaddlePaddle/Paddle/pull/59616
    - https://github.com/PaddlePaddle/Paddle/pull/58735
-   - https://github.com/PaddleJitLab/jit-exportable-models/pull/6
-   - https://github.com/PaddleJitLab/jit-exportable-models/pull/5
 
 2. **Fix System Message**
 
@@ -25,9 +23,6 @@
 
    - https://github.com/PaddlePaddle/Paddle/pull/59703
    - https://github.com/PaddlePaddle/Paddle/pull/59694
-
-
-暂无
 
 ### 未来双周计划
 
