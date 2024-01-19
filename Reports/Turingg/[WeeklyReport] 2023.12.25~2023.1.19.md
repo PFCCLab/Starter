@@ -1,0 +1,29 @@
+### 姓名
+
+Turingg（许芸欣）
+
+###  <个人在集训营期间贡献的所有快乐开源 PR>
+
+https://github.com/PaddlePaddle/docs/pull/6335
+https://github.com/PaddlePaddle/docs/pull/6349
+https://github.com/PaddlePaddle/docs/pull/6383
+https://github.com/PaddlePaddle/docs/pull/6384
+https://github.com/PaddlePaddle/docs/pull/6385
+https://github.com/PaddlePaddle/docs/pull/6387
+https://github.com/PaddlePaddle/docs/pull/6406
+https://github.com/PaddlePaddle/docs/pull/6407
+https://github.com/PaddlePaddle/docs/pull/6382
+https://github.com/PaddlePaddle/docs/pull/6457
+https://github.com/PaddlePaddle/docs/pull/6477
+https://github.com/PaddlePaddle/docs/pull/6479
+https://github.com/PaddlePaddle/docs/pull/6485
+
+### 本双周工作
+
+1. **任务**
+
+筛选完Overview
+
+2. **任务**
+
+了解LSTM模型
