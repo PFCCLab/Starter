@@ -4,19 +4,19 @@ Turingg（许芸欣）
 
 ###  <个人在集训营期间贡献的所有快乐开源 PR>
 
-https://github.com/PaddlePaddle/docs/pull/6335
-https://github.com/PaddlePaddle/docs/pull/6349
-https://github.com/PaddlePaddle/docs/pull/6383
-https://github.com/PaddlePaddle/docs/pull/6384
-https://github.com/PaddlePaddle/docs/pull/6385
-https://github.com/PaddlePaddle/docs/pull/6387
-https://github.com/PaddlePaddle/docs/pull/6406
-https://github.com/PaddlePaddle/docs/pull/6407
-https://github.com/PaddlePaddle/docs/pull/6382
-https://github.com/PaddlePaddle/docs/pull/6457
-https://github.com/PaddlePaddle/docs/pull/6477
-https://github.com/PaddlePaddle/docs/pull/6479
-https://github.com/PaddlePaddle/docs/pull/6485
+1.https://github.com/PaddlePaddle/docs/pull/6335
+2.https://github.com/PaddlePaddle/docs/pull/6349
+3.https://github.com/PaddlePaddle/docs/pull/6383
+4.https://github.com/PaddlePaddle/docs/pull/6384
+5.https://github.com/PaddlePaddle/docs/pull/6385
+6.https://github.com/PaddlePaddle/docs/pull/6387
+7.https://github.com/PaddlePaddle/docs/pull/6406
+8.https://github.com/PaddlePaddle/docs/pull/6407
+9.https://github.com/PaddlePaddle/docs/pull/6382
+10.https://github.com/PaddlePaddle/docs/pull/6457
+11.https://github.com/PaddlePaddle/docs/pull/6477
+12.https://github.com/PaddlePaddle/docs/pull/6479
+13.https://github.com/PaddlePaddle/docs/pull/6485
 
 ### 本双周工作
 
