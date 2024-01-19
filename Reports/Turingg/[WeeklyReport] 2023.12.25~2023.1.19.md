@@ -2,6 +2,16 @@
 
 Turingg（许芸欣）
 
+### 本双周工作
+
+1. **任务**
+
+筛选完Overview
+
+2. **任务**
+
+了解LSTM模型
+
 ###  <个人在集训营期间贡献的所有快乐开源 PR>
 
 1.https://github.com/PaddlePaddle/docs/pull/6335
@@ -18,12 +28,4 @@ Turingg（许芸欣）
 12.https://github.com/PaddlePaddle/docs/pull/6479
 13.https://github.com/PaddlePaddle/docs/pull/6485（转内部写，可以写入提交的所有pr之中）
 
-### 本双周工作
 
-1. **任务**
-
-筛选完Overview
-
-2. **任务**
-
-了解LSTM模型
