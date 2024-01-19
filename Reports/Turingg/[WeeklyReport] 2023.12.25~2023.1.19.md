@@ -16,7 +16,7 @@ Turingg（许芸欣）
 10.https://github.com/PaddlePaddle/docs/pull/6457
 11.https://github.com/PaddlePaddle/docs/pull/6477
 12.https://github.com/PaddlePaddle/docs/pull/6479
-13.https://github.com/PaddlePaddle/docs/pull/6485
+13.https://github.com/PaddlePaddle/docs/pull/6485（转内部写，可以写入提交的所有pr之中）
 
 ### 本双周工作
 
