@@ -34,21 +34,5 @@
 + https://github.com/PaddlePaddle/Paddle/pull/58935
 + https://github.com/PaddlePaddle/Paddle/pull/58927
 + https://github.com/PaddlePaddle/Paddle/pull/58937
-+ https://github.com/PaddlePaddle/community/pull/753
-+ https://github.com/PaddlePaddle/community/pull/754
-+ https://github.com/PaddlePaddle/community/pull/753
-+ https://github.com/PaddlePaddle/Paddle/pull/58214
-+ https://github.com/PaddlePaddle/docs/pull/6334
-+ https://github.com/PaddlePaddle/Paddle/pull/57785
-+ https://github.com/PaddlePaddle/docs/pull/6417
-+ https://github.com/PaddlePaddle/Paddle/pull/58092
-+ https://github.com/PaddlePaddle/docs/pull/6399
 + https://github.com/PaddlePaddle/community/pull/794
 + https://github.com/PaddlePaddle/docs/pull/6469
-+ https://github.com/PaddlePaddle/docs/pull/6391
-+ https://github.com/PaddlePaddle/Paddle/pull/57869
-+ https://github.com/PaddlePaddle/docs/pull/6350
-+ https://github.com/PaddlePaddle/Paddle/pull/57880
-
-
-
