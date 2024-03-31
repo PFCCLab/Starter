@@ -14,17 +14,26 @@
 
    - 完成 Paddle 本地编译: 尝试在 OpenI 社区算力平台进行编译, 但由于环境和内存溢出问题未编译成功。已申请 AI Studio 资源, 并重新尝试, 已编译成功并邮件反馈.
 
-   - Stable-Diffusion 训练推理: 待启动
+   - Stable-Diffusion 训练推理: 在 AI Studio V100 32G 的机器上运行成功,遇到 ppdiffusers 版本的问题,尝试切换到 origin/ppdiffusers0.19.4 分支, 成功运行。
 
 2. **文档修复(文档团)**
 
    - 主要是修复[石墨文档上开发者反馈的历史问题][6]
+      - 已合入 PR :
+
+        - 1. [fix: table format when markdown render to html](https://github.com/PaddlePaddle/docs/pull/6568)
+        - 2. [fix: paddle-lite docs url](https://github.com/PaddlePaddle/docs/pull/6552)
+        - 3. [fix: shimo MODOC 5 7 8 10](https://github.com/PaddlePaddle/docs/pull/6551)
+        - 4. [fix: remove Tensor.dist_attr](https://github.com/PaddlePaddle/docs/pull/6548)
+        - 5. [fix: Flatten --> Linear](https://github.com/PaddlePaddle/docs/pull/6545)
+
+
 
 3. **问题疑惑与解答**
 
    - 问题 本地源码编译 Paddle 没成功，如何解决 ？
 
-     答：老师建议使用 AI Studio 资源进行编译。
+     答：老师建议使用 AI Studio 资源进行编译。最终通过申请 AI Studio 框架开发任务权限,使用 V100 16G 资源成功进行 CPU 环境下源码编译。
 
    - 问题 PaddleMIX SD 训练&推理时在 AI Studio V100 16G 的机器上无法正常运行,报错内存不足？
 
@@ -36,9 +45,9 @@
 
 ### 未来双周计划
 
-1. xxx
-2. xxx
-3. xxx
+1. 尝试[补充 Overview 文档相关 API 描述][7]
+2. 尝试处理 [issues][8] 中的问题
+3. 尝试参与贡献 [PFCC 社区博客新功能开发][9]
 
 <!-- ### 参考资料 -->
 
@@ -53,3 +62,9 @@
 [5]:<https://aistudio.baidu.com/projectdetail/7649127> "跑通 Stable-Diffusion 训练推理"
 
 [6]:<https://shimo.im/sheets/1d3aMbB67WSLEb3g/MODOC> "文档修复(文档团)"
+
+[7]:<https://github.com/PaddlePaddle/docs/issues/6427> "补充 Overview 文档相关 API 描述"
+
+[8]:<https://github.com/PaddlePaddle/docs/issues> "PaddlePaddle/docs issues"
+
+[9]:<https://github.com/PFCCLab/blog/issues> "PFCC 社区博客新功能开发"
