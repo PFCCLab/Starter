@@ -41,10 +41,11 @@
 
    - 问题 遇到文档中引用源码需要修改的情况，如何修改？比如 [paddle.save][3] 中的代码示例, 文档中引用的是 [PaddlePaddle/Paddle/pthon/paddle/framework/io.py][4]，需要修改 Paddle 仓库吗？
 
-     答：xxx
+     答：需要
 
 ### 未来双周计划
 
+0. 继续跟进[`markdown table 渲染问题`](https://github.com/PaddlePaddle/docs/pull/6568)
 1. 尝试[补充 Overview 文档相关 API 描述][7]
 2. 尝试处理 [issues][8] 中的问题
 3. 尝试参与贡献 [PFCC 社区博客新功能开发][9]
