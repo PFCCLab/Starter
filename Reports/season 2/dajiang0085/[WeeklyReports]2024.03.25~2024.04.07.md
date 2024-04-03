@@ -9,7 +9,7 @@
 ### 未来双周计划
 
 1. 合入【Docathon】补充Overview文档相关API描述 #6427
-2. 【快乐开源】PIR test_errors 相关单测适配 #60696  A-4 
+2. 【快乐开源】PIR test_errors 相关单测适配 #60696  A-4   
 
 ### 详细周报链接：
 
