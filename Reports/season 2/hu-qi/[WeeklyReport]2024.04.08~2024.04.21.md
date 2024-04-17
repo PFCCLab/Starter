@@ -52,4 +52,3 @@
 [4]:<https://github.com/hu-qi/paddlepaddle-badge> "hu-qi/paddlepaddle-badge"
 [5]:<https://github.com/hu-qi/PaddlePaddle-badge/blob/latest/src/achievements.config.ts> "paddlepaddle-badge 成就系统定义"
 [6]:<https://github.com/PaddlePaddle/docs/issues/6614> "为 Tensor API 文档增加图例"
-[7]:<https://github.com/PaddlePaddle/docs/issues/6614> "为 Tensor API 文档增加图例"
