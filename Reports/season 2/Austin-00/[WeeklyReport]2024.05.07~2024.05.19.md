@@ -8,10 +8,9 @@
 
 ### 本双周工作
 
-
 1. 文档修复热身打卡
 
-2. 推进PIR专项团任务
+2. 推进CINN后端支持动态Shape的reduce算子bucketlower scheduleconfig搜索相关工作
 
 ### 未来双周计划
 
