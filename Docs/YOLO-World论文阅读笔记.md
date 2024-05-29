@@ -72,7 +72,7 @@ region-text pairs 作为标签，就是以物体的 boundingbox 和对应文本�
 1.  通过 n-gram 算法提取文本中的名词短语
 2.  将图片和提取的名词短语输入到 GLIP 中生成 bounding box
 3.  使用 CLIP 来评估 image-text pairs 与 region-text pairs 之间的相关性，将相关性
-    较低的筛去（附录部分提到作者设置的筛选规则是 $s=\sqrt{s^{img}*s^{region}}$ ）。
+    较低的筛去（附录部分提到作者设置的筛选规则是 $s=\sqrt{s^{img}*s^{region}}\leq0.3$ ）。
     最后再通过 nms 筛去冗余的 boundingbox。
 
 
