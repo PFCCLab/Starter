@@ -1,7 +1,7 @@
 
 # Table of Contents
 
-1.  [YOLO-World: Real-Time Open-Vocabulary Object Detection](#org0f7d60e)
++ [YOLO-World: Real-Time Open-Vocabulary Object Detection](#org0f7d60e)
     1.  [Problem](#org5ff3ddb)
     2.  [Motivation](#org35ba814)
     3.  [Method](#org0dec54d)
@@ -10,7 +10,7 @@
         3.  [Architecture](#orga37817d)
         4.  [Loss](#orgd6d582b)
     4.  [Result](#org78433b0)
-        1.  [zero-shot 能力](#orgf4b6832)
+        1.  [zero-shot capability](#orgf4b6832)
     5.  [Contribution](#orgcbe359d)
 
 
@@ -360,7 +360,7 @@ $\mathcal{L}\_{\mathrm{dff}}$ 是针对 boundingbox 的损失(与 yolov8 相同)
 
 <a id="orgf4b6832"></a>
 
-### zero-shot 能力
+### zero-shot capability
 
 ![img](https://github.com/PaddlePaddle/PaddleMIX/assets/93063038/9e71d97b-5353-4c4f-b016-44f2722b75fe.png)
 
