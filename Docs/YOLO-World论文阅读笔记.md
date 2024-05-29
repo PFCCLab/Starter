@@ -103,7 +103,7 @@ region-text pairs 作为标签，就是以物体的 boundingbox 和对应文本�
         上图为 c2f layer，可以发现 T-CSPLayer 事实上只是在 c2f layer 的基础上在
         bottleneck layer 之后添加了一个 Max-Sigmoid Attention，其使用 paddle 实现的代码
         如下：
-        
+        ```python
             class MaxSigmoidAttnBlock(nn.Layer):
                 """Max Sigmoid attention block."""
             
@@ -197,7 +197,7 @@ region-text pairs 作为标签，就是以物体的 boundingbox 和对应文本�
                     x = x * attn_weight.unsqueeze(2)
                     x = x.reshape([B, -1, H, W])
                     return x
-        
+        ```    
         为了解释为什么使用 Max-Sigmoid Attention，并且为什么要取最大值，让我们回顾一下背
         景。首先 TextBackbone clip 会将输入的 n 个文本编码成 n 个对应的向量。然后，通过
         计算文本嵌入与图像嵌入的内积得到它们的相似度作为注意力权重。我们的目标是找到与这
@@ -206,11 +206,11 @@ region-text pairs 作为标签，就是以物体的 boundingbox 和对应文本�
     
     2.  I-Pooling Attention
     
-        将三个不同尺度的图片特征使用池化(使用 nn.AdaptiveMaxPool2D 实现)下采样到$3&times;3$的
+        将三个不同尺度的图片特征使用池化(使用 nn.AdaptiveMaxPool2D 实现)下采样到 $3\times3$ 的
         大小后 flatten 并 concat。与文本嵌入作 multihead-attention，如下式：
-        $$
-        W' = W + MultiHead-Attention(W, X', X')
-        $$
+
+        $$W' = W + MultiHead-Attention(W, X', X')$$
+
         其中 W 为文本嵌入，X&rsquo;为图片特征。使用 paddle 实现代码如下：
         
             class ImagePoolingAttentionModule(nn.Layer):
@@ -305,28 +305,23 @@ region-text pairs 作为标签，就是以物体的 boundingbox 和对应文本�
         为什么这个模块叫 Re-parameterizable Vision-Language PAN 捏，在
         Prompt-then-detect paradigm 小节中也提到了可以将离线词表重参数化为
         Vision-Language PAN 层的参数。当推理的词表是固定的时候，此时 text encoder 的输出
-        是固定的，即$W \in R^{C'\times D}$，C&rsquo;是离线词表的大小（即文本个数），D 是 embedding 的
+        是固定的，即 $W \in R^{C'\times D}$，C&rsquo;是离线词表的大小（即文本个数），D 是 embedding 的
         维度。此时可以对 T-CSPLayer 和 I-Pooling Attention 层进行重参数化。
         
         1.  T-CSPLayer 的重参数化
         
             原 T-CSPLayer 可以表示为：
-            $$
-            X_l^{\prime}=X_l \cdot \delta\left(\max _{j \in\{1 . . C\}}\left(X_l
-            W_j^{\top}\right)\right)^{\top}
-            $$
+            $$X_l^{\prime}=X_l \cdot \delta\left(\max _{j \in\{1 . . C\}}\left(X_lW_j^{\top}\right)\right)^{\top}$$
             
-            此时希望可以不再维护文本特征而由于此时的 W 是固定的，可以将其 reshape 成$W \in
-            R^{C'\times D\times1\times1}$ 随后作为$1&times;1$卷积或 linear 层的权重。重参数化后该层可以表示如下：
+            此时希望可以不再维护文本特征而由于此时的 W 是固定的，可以将其 reshape 成 $W \in R^{C'\times D \times 1 \times 1}$ 随后作为 $1\times1$ 卷积或 linear 层的权重。重参数化后该层可以表示如下：
             
-            $$ X_l^{\prime}=X_l \cdot \delta\left(\max _{j \in\{1 . . C\}}\left(
-            \operatorname{Conv}\left(X_l, W_j\right), dim=1 \right) \right)^{\top}
-            $$
-            其中输出$X'_{l} \in R^{B\timesD\timesH\timesW}$，conv(x,w) 表示以 w 为权重对 x 进行卷积操作。
+            $$X\_l^{\prime}=X\_l \cdot \delta\left(\max \_{j \in\{1 . . C\}}\left(Conv\left(X\_l, W\_j\right), dim=1 \right) \right)^{\top}$$
+            
+            其中输出为 $X'_{l} \in R^{B \times D \times H \times W}$，conv(x,w) 表示以 w 为权重对 x 进行卷积操作。
         
-        2.  I-Pooling Attention 的重参数化
+        3.  I-Pooling Attention 的重参数化
         
-            这里有点难崩，论文中给出的重参数化后的公式显然有问题
+            这里有点难绷，论文中给出的重参数化后的公式显然有问题
             
             ![img](https://github-production-user-asset-6210df.s3.amazonaws.com/93063038/334739526-009a9660-17fe-4938-9547-352644d6f58c.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20240529%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20240529T102109Z&X-Amz-Expires=300&X-Amz-Signature=bf1d621dee481e618322efd96a4a6a92c81e3beaea9e3414ddfe8f81d21c940a&X-Amz-SignedHeaders=host&actor_id=93063038&key_id=0&repo_id=662392605)
             
@@ -349,15 +344,13 @@ region-text pairs 作为标签，就是以物体的 boundingbox 和对应文本�
 ### Loss
 
 totle loss 如下：
-$$
-\mathcal{L}\left(I)\right=\mathcal{L}_{\text {con }}+\lambda_I \cdot\left(\mathcal{L}_{\text {iou
-}}+\mathcal{L}_{\mathrm{dff}}\right)\right.
-$$
 
-其中$\mathcal{L}<sub>\text {con }</sub>$是针对语义的 region-text 对比损失，通过对
+$$\mathcal{L}(I)=\mathcal{L}_{\text {con }}+\lambda_I \cdot(\mathcal{L}\_{\text {iou}}+\mathcal{L}\_{\mathrm{dff}})$$
+
+其中 $\mathcal{L}_{\text {con }}$ 是针对语义的 region-text 对比损失，通过对
 object-text（region-text）的相似性和 object-text assignments(使用 TOOD 中的
-task-aligned label assignment 得到) 做交叉熵构建。$\mathcal{L}<sub>\text {iou }</sub>$与
-$\mathcal{L}<sub>\mathrm{dff}</sub>$是针对 boundingbox 的损失(与 yolov8 相同)。
+task-aligned label assignment 得到) 做交叉熵构建。 $\mathcal{L}\_{\text {iou}}$ 与
+$\mathcal{L}\_{\mathrm{dff}}$ 是针对 boundingbox 的损失(与 yolov8 相同)。
 
 
 <a id="org78433b0"></a>
