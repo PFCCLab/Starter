@@ -52,12 +52,12 @@
 
 ![img](https://github.com/PaddlePaddle/PaddleMIX/assets/93063038/940e86e8-47fd-4b10-be61-228e84518457.png)
 
-先前的开集检测方法维护在线的词汇表，在每次推理的过程中都需要对输入文本进行编码来
-构建在线词汇表，这会增大网络对推理资源的需求，增大 latency。YOLO-World 提出了一
-种 Prompt-then-detect 范式，可以将给定文本编码成离线词汇表，从而可以在推理阶段不
-用反复对文本进行编码。除此之外在 YOLO-World 中，可以使用重参数化方法，将离线词汇
-表(即通过 text encoder 编码得到的文本特征)参数化为 neck 中的模型参数，从而实现高
-效地部署与加速。
+之前的开集检测方法往往维护一个在线词汇表，在每次推理的过程中都需要对输入文本进行编
+码来构建在线词汇表，这会增大网络对推理资源的需求，增大 latency。YOLO-World 提出了一
+种 Prompt-then-detect 范式，可以将给定文本编码成离线词汇表，从而避免在推理阶段
+反复对文本进行编码。除此之外，在 YOLO-World 中，可以使用重参数化方法，将离线词汇
+表(即通过 text encoder 编码得到的文本特征)参数化为 neck 中的模型参数，实现高效
+地部署与加速。
 
 
 <a id="org2c2e633"></a>
@@ -101,110 +101,112 @@ region-text pairs 作为标签，就是以物体的 boundingbox 和对应文本�
         ![img](https://github-production-user-asset-6210df.s3.amazonaws.com/93063038/334737381-cd69a952-2f00-4bc6-8c8d-83a78374f8fe.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20240529%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20240529T102018Z&X-Amz-Expires=300&X-Amz-Signature=e143d350c537973b949958d261140dfb2fd886b05412abced6b6cb00fe176161&X-Amz-SignedHeaders=host&actor_id=93063038&key_id=0&repo_id=662392605)
         
         上图为 c2f layer，可以发现 T-CSPLayer 事实上只是在 c2f layer 的基础上在
-        bottleneck layer 之后添加了一个 Max-Sigmoid Attention，其使用 paddle 实现的代码
-        如下：
+        bottleneck layer 之后添加了一个 Max-Sigmoid Attention，其使用 paddle 实现的代码如下:
+        
         ```python
-            class MaxSigmoidAttnBlock(nn.Layer):
-                """Max Sigmoid attention block."""
-            
-                def __init__(
-                    self,
-                    in_channels,
-                    out_channels,
-                    guide_channels,
-                    embed_channels,
-                    kernel_size=3,
-                    padding=1,
-                    num_heads=1,
-                    depthwise=False,
-                    with_scale=False,
-                    act="silu",
-                ):
-                    super().__init__()
-            
-                    assert (
-                        out_channels % num_heads == 0 and embed_channels % num_heads == 0
-                    ), "out_channels and embed_channels should be divisible by num_heads."
-                    self.num_heads = num_heads
-                    self.head_channels = out_channels // num_heads
-                    Conv = DWConv if depthwise else BaseConv
-            
-                    self.embed_conv = (
-                        nn.Sequential(
-                            nn.Conv2D(
-                                in_channels=in_channels,
-                                out_channels=embed_channels,
-                                kernel_size=kernel_size,
-                                padding=padding,
-                            ),
-                            nn.BatchNorm2D(
-                                num_features=embed_channels, momentum=0.03, epsilon=0.001
-                            ),
-                        )
-                        if embed_channels != in_channels
-                        else None
+        class MaxSigmoidAttnBlock(nn.Layer):
+            """Max Sigmoid attention block."""
+        
+            def __init__(
+                self,
+                in_channels,
+                out_channels,
+                guide_channels,
+                embed_channels,
+                kernel_size=3,
+                padding=1,
+                num_heads=1,
+                depthwise=False,
+                with_scale=False,
+                act="silu",
+            ):
+                super().__init__()
+        
+                assert (
+                    out_channels % num_heads == 0 and embed_channels % num_heads == 0
+                ), "out_channels and embed_channels should be divisible by num_heads."
+                self.num_heads = num_heads
+                self.head_channels = out_channels // num_heads
+                Conv = DWConv if depthwise else BaseConv
+        
+                self.embed_conv = (
+                    nn.Sequential(
+                        nn.Conv2D(
+                            in_channels=in_channels,
+                            out_channels=embed_channels,
+                            kernel_size=kernel_size,
+                            padding=padding,
+                        ),
+                        nn.BatchNorm2D(
+                            num_features=embed_channels, momentum=0.03, epsilon=0.001
+                        ),
                     )
-            
-                    self.guide_fc = nn.Linear(guide_channels, embed_channels)
-            
-                    self.bias = self.create_parameter(
-                        shape=[num_heads],
-                        default_initializer=nn.initializer.Constant(value=0.0),
-                        is_bias=True,
+                    if embed_channels != in_channels
+                    else None
+                )
+        
+                self.guide_fc = nn.Linear(guide_channels, embed_channels)
+        
+                self.bias = self.create_parameter(
+                    shape=[num_heads],
+                    default_initializer=nn.initializer.Constant(value=0.0),
+                    is_bias=True,
+                )
+        
+                if with_scale:
+                    self.scale = self.create_parameter(
+                        shape=[1, num_heads, 1, 1],
+                        default_initializer=nn.initializer.Constant(value=1.0),
                     )
-            
-                    if with_scale:
-                        self.scale = self.create_parameter(
-                            shape=[1, num_heads, 1, 1],
-                            default_initializer=nn.initializer.Constant(value=1.0),
-                        )
-                    else:
-                        self.scale = 1.0
-            
-                    self.project_conv = Conv(
-                        in_channels=in_channels,
-                        out_channels=out_channels,
-                        ksize=kernel_size,
-                        stride=1,
-                        with_act=False,
-                    )
-            
-                def forward(self, x, guide):
-                    B, _, H, W = x.shape
-            
-                    guide = self.guide_fc(guide)
-                    guide = guide.reshape([B, -1, self.num_heads, self.head_channels])
-                    embed = self.embed_conv(x) if self.embed_conv is not None else x
-                    embed = embed.reshape([B, self.num_heads, self.head_channels, H, W])
-            
-                    batch, num_heads, head_channels, height, width = embed.shape
-                    _, num_embeddings, _, _ = guide.shape
-                    embed = paddle.transpose(embed, perm=[0, 1, 3, 4, 2])
-                    embed = embed.reshape([B, num_heads, -1, head_channels])
-                    guide = paddle.transpose(guide, perm=[0, 2, 3, 1])
-                    attn_weight = paddle.matmul(embed, guide)
-                    attn_weight = attn_weight.reshape(
-                        [batch, num_heads, height, width, num_embeddings]
-                    )
-            
-                    attn_weight = attn_weight.max(axis=-1)[0]
-                    attn_weight = attn_weight / (self.head_channels**0.5)
-                    attn_weight = attn_weight + self.bias[None, :, None, None]
-                    attn_weight = attn_weight.sigmoid() * self.scale
-            
-                    x = self.project_conv(x)
-                    x = x.reshape([B, self.num_heads, -1, H, W])
-                    x = x * attn_weight.unsqueeze(2)
-                    x = x.reshape([B, -1, H, W])
-                    return x
-        ```    
+                else:
+                    self.scale = 1.0
+        
+                self.project_conv = Conv(
+                    in_channels=in_channels,
+                    out_channels=out_channels,
+                    ksize=kernel_size,
+                    stride=1,
+                    with_act=False,
+                )
+        
+            def forward(self, x, guide):
+                B, _, H, W = x.shape
+        
+                guide = self.guide_fc(guide)
+                guide = guide.reshape([B, -1, self.num_heads, self.head_channels])
+                embed = self.embed_conv(x) if self.embed_conv is not None else x
+                embed = embed.reshape([B, self.num_heads, self.head_channels, H, W])
+        
+                batch, num_heads, head_channels, height, width = embed.shape
+                _, num_embeddings, _, _ = guide.shape
+                embed = paddle.transpose(embed, perm=[0, 1, 3, 4, 2])
+                embed = embed.reshape([B, num_heads, -1, head_channels])
+                guide = paddle.transpose(guide, perm=[0, 2, 3, 1])
+                attn_weight = paddle.matmul(embed, guide)
+                attn_weight = attn_weight.reshape(
+                    [batch, num_heads, height, width, num_embeddings]
+                )
+        
+                attn_weight = attn_weight.max(axis=-1)[0]
+                attn_weight = attn_weight / (self.head_channels**0.5)
+                attn_weight = attn_weight + self.bias[None, :, None, None]
+                attn_weight = attn_weight.sigmoid() * self.scale
+        
+                x = self.project_conv(x)
+                x = x.reshape([B, self.num_heads, -1, H, W])
+                x = x * attn_weight.unsqueeze(2)
+                x = x.reshape([B, -1, H, W])
+                return x
+        ```
+        
         为了解释为什么使用 Max-Sigmoid Attention，并且为什么要取最大值，让我们回顾一下背
         景。首先 TextBackbone clip 会将输入的 n 个文本编码成 n 个对应的向量。然后，通过
         计算文本嵌入与图像嵌入的内积得到它们的相似度作为注意力权重。我们的目标是找到与这
         n 个文本编码中任意一个最相似的特征图区域，并将其赋予较高的权重。因此只需要在文本
         嵌入数量这一维度上取最大值，就能够实现这样的效果（如代码所示）。
     
-    2.  I-Pooling Attention
+    3.  I-Pooling Attention
+  
     
         将三个不同尺度的图片特征使用池化(使用 nn.AdaptiveMaxPool2D 实现)下采样到 $3\times3$ 的
         大小后 flatten 并 concat。与文本嵌入作 multihead-attention，如下式：
@@ -212,95 +214,97 @@ region-text pairs 作为标签，就是以物体的 boundingbox 和对应文本�
         $$W' = W + MultiHead-Attention(W, X', X')$$
 
         其中 W 为文本嵌入，X&rsquo;为图片特征。使用 paddle 实现代码如下：
+
+        ```python
+        class ImagePoolingAttentionModule(nn.Layer):
+            def __init__(
+                self,
+                image_channels,
+                text_channels,
+                embed_channels,
+                with_scale=False,
+                num_feats=3,
+                num_heads=8,
+                pool_size=3,
+            ):
+                super().__init__()
         
-            class ImagePoolingAttentionModule(nn.Layer):
-                def __init__(
-                    self,
-                    image_channels,
-                    text_channels,
-                    embed_channels,
-                    with_scale=False,
-                    num_feats=3,
-                    num_heads=8,
-                    pool_size=3,
-                ):
-                    super().__init__()
-            
-                    self.text_channels = text_channels
-                    self.embed_channels = embed_channels
-                    self.num_heads = num_heads
-                    self.num_feats = num_feats
-                    self.head_channels = embed_channels // num_heads
-                    self.pool_size = pool_size
-                    if with_scale:
-                        self.scale = self.create_parameter(
-                            shape=[1], default_initializer=paddle.nn.initializer.Constant(0.0)
+                self.text_channels = text_channels
+                self.embed_channels = embed_channels
+                self.num_heads = num_heads
+                self.num_feats = num_feats
+                self.head_channels = embed_channels // num_heads
+                self.pool_size = pool_size
+                if with_scale:
+                    self.scale = self.create_parameter(
+                        shape=[1], default_initializer=paddle.nn.initializer.Constant(0.0)
+                    )
+                else:
+                    self.scale = 1.0
+        
+                self.projections = nn.LayerList(
+                    [
+                        BaseConv(
+                            in_channels=in_channels,
+                            out_channels=embed_channels,
+                            ksize=1,
+                            stride=1,
+                            with_act=False,
                         )
-                    else:
-                        self.scale = 1.0
-            
-                    self.projections = nn.LayerList(
-                        [
-                            BaseConv(
-                                in_channels=in_channels,
-                                out_channels=embed_channels,
-                                ksize=1,
-                                stride=1,
-                                with_act=False,
-                            )
-                            for in_channels in image_channels
-                        ]
-                    )
-                    self.query = nn.Sequential(
-                        nn.LayerNorm(text_channels), nn.Linear(text_channels, embed_channels)
-                    )
-                    self.key = nn.Sequential(
-                        nn.LayerNorm(embed_channels), nn.Linear(embed_channels, embed_channels)
-                    )
-                    self.value = nn.Sequential(
-                        nn.LayerNorm(embed_channels), nn.Linear(embed_channels, embed_channels)
-                    )
-                    self.proj = nn.Linear(embed_channels, text_channels)
-            
-                    self.image_pools = nn.LayerList(
-                        [nn.AdaptiveMaxPool2D((pool_size, pool_size)) for _ in range(num_feats)]
-                    )
-            
-                def forward(self, text_features, image_features):
-                    B = image_features[0].shape[0]
-                    assert len(image_features) == self.num_feats
-                    num_patches = self.pool_size**2
-                    mlvl_image_features = [
-                        pool(proj(x)).view([B, -1, num_patches])
-                        for (x, proj, pool) in zip(
-                            image_features, self.projections, self.image_pools
-                        )
+                        for in_channels in image_channels
                     ]
-                    mlvl_image_features = paddle.transpose(
-                        paddle.concat(mlvl_image_features, axis=-1), perm=[0, 2, 1]
+                )
+                self.query = nn.Sequential(
+                    nn.LayerNorm(text_channels), nn.Linear(text_channels, embed_channels)
+                )
+                self.key = nn.Sequential(
+                    nn.LayerNorm(embed_channels), nn.Linear(embed_channels, embed_channels)
+                )
+                self.value = nn.Sequential(
+                    nn.LayerNorm(embed_channels), nn.Linear(embed_channels, embed_channels)
+                )
+                self.proj = nn.Linear(embed_channels, text_channels)
+        
+                self.image_pools = nn.LayerList(
+                    [nn.AdaptiveMaxPool2D((pool_size, pool_size)) for _ in range(num_feats)]
+                )
+        
+            def forward(self, text_features, image_features):
+                B = image_features[0].shape[0]
+                assert len(image_features) == self.num_feats
+                num_patches = self.pool_size**2
+                mlvl_image_features = [
+                    pool(proj(x)).view([B, -1, num_patches])
+                    for (x, proj, pool) in zip(
+                        image_features, self.projections, self.image_pools
                     )
-                    q = self.query(text_features)
-                    k = self.key(mlvl_image_features)
-                    v = self.value(mlvl_image_features)
-            
-                    q = q.reshape([B, -1, self.num_heads, self.head_channels])
-                    k = k.reshape([B, -1, self.num_heads, self.head_channels])
-                    v = v.reshape([B, -1, self.num_heads, self.head_channels])
-            
-                    q = paddle.transpose(q, perm=[0, 2, 1, 3])
-                    k = paddle.transpose(k, perm=[0, 2, 1, 3])
-                    attn_weight = paddle.matmul(q, k)
-            
-                    attn_weight = attn_weight / (self.head_channels**0.5)
-                    attn_weight = F.softmax(attn_weight, axis=-1)
-            
-                    v = paddle.transpose(v, perm=[0, 2, 1, 3])
-                    x = paddle.matmul(attn_weight, v)
-                    x = paddle.transpose(x, perm=[0, 2, 1, 3])
-                    x = self.proj(x.reshape([B, -1, self.embed_channels]))
-                    return x * self.scale + text_features
-    
-    3.  Re-parameterization
+                ]
+                mlvl_image_features = paddle.transpose(
+                    paddle.concat(mlvl_image_features, axis=-1), perm=[0, 2, 1]
+                )
+                q = self.query(text_features)
+                k = self.key(mlvl_image_features)
+                v = self.value(mlvl_image_features)
+        
+                q = q.reshape([B, -1, self.num_heads, self.head_channels])
+                k = k.reshape([B, -1, self.num_heads, self.head_channels])
+                v = v.reshape([B, -1, self.num_heads, self.head_channels])
+        
+                q = paddle.transpose(q, perm=[0, 2, 1, 3])
+                k = paddle.transpose(k, perm=[0, 2, 1, 3])
+                attn_weight = paddle.matmul(q, k)
+        
+                attn_weight = attn_weight / (self.head_channels**0.5)
+                attn_weight = F.softmax(attn_weight, axis=-1)
+        
+                v = paddle.transpose(v, perm=[0, 2, 1, 3])
+                x = paddle.matmul(attn_weight, v)
+                x = paddle.transpose(x, perm=[0, 2, 1, 3])
+                x = self.proj(x.reshape([B, -1, self.embed_channels]))
+                return x * self.scale + text_features
+        ```
+        
+    4.  Re-parameterization
     
         为什么这个模块叫 Re-parameterizable Vision-Language PAN 捏，在
         Prompt-then-detect paradigm 小节中也提到了可以将离线词表重参数化为
