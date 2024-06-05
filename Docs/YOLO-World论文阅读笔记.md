@@ -46,7 +46,7 @@
 
 ### Pre-training Formulation: Region-Text Pairs
 
-和传统目标检测方法不同(以 boundingbox 和 class 为标签)，YOLO-World 使用region-text pairs 作为标签，就是以物体的 boundingbox 和对应文本对作为标签啦。
+和传统目标检测方法不同(以 boundingbox 和 class 为标签)，YOLO-World 使用 region-text pairs 作为标签，就是以物体的 boundingbox 和对应文本对作为标签啦。
 
 该如何大批量自动生成这样的数据集捏？本文给出了一种方案：
 
@@ -66,7 +66,7 @@
     
 2.  Neck: RepVL-PAN
 
-    既然是多模态的方法自然少不了跨模态特征之间的交互与对齐，YOLO-World 的 neck 部分为 Re-parameterizable Vision-Language PAN，使用 Text-guided CSPLayer 替换 yolov8中的 c2f layer 完成实现文本特征对图像特征的增强，加入 Image-Pooling Attention 实现图像特征对文本特征的增强。通过这两个模块实现了多模态特征的交互与对齐。
+    既然是多模态的方法自然少不了跨模态特征之间的交互与对齐，YOLO-World 的 neck 部分为 Re-parameterizable Vision-Language PAN，使用 Text-guided CSPLayer 替换 yolov8 中的 c2f layer 完成实现文本特征对图像特征的增强，加入 Image-Pooling Attention 实现图像特征对文本特征的增强。通过这两个模块实现了多模态特征的交互与对齐。
     
     ![img](https://private-user-images.githubusercontent.com/93063038/336473946-12b5516b-f1ff-430d-bd0f-a9bdd1c325a9.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MTc1MDg4OTUsIm5iZiI6MTcxNzUwODU5NSwicGF0aCI6Ii85MzA2MzAzOC8zMzY0NzM5NDYtMTJiNTUxNmItZjFmZi00MzBkLWJkMGYtYTliZGQxYzMyNWE5LnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNDA2MDQlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjQwNjA0VDEzNDMxNVomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPWM4ZDMyZmUxZTNiZjIyZWQ5YWE0NDFhODc2NWE0NTAwNTZiNDM4NWVhNmYwZTE3MmMxMzcwZDFkMmZiMmQzYWYmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0JmFjdG9yX2lkPTAma2V5X2lkPTAmcmVwb19pZD0wIn0.MevIxRMe3-BXtrjqR53l9wIHqAVrF8XXl5HpuYERV-0)
     
@@ -74,7 +74,7 @@
     
         ![img](https://private-user-images.githubusercontent.com/93063038/336473897-fedfc893-e9cd-4f55-ae5a-3dc2bdaf5432.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MTc1MDg4OTUsIm5iZiI6MTcxNzUwODU5NSwicGF0aCI6Ii85MzA2MzAzOC8zMzY0NzM4OTctZmVkZmM4OTMtZTljZC00ZjU1LWFlNWEtM2RjMmJkYWY1NDMyLnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNDA2MDQlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjQwNjA0VDEzNDMxNVomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPWQ2YzkyNTU3YTYyMDU2NmNhNzRiMTc2ZWQwZDE0YTE4M2RiMDNhMjBmZTk2OWVjMDUyY2U3M2Y1MGU1NDVhMWYmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0JmFjdG9yX2lkPTAma2V5X2lkPTAmcmVwb19pZD0wIn0.xVQY7AIdLI5tleExZqn5DKYReb1d1_eEyDtG7p0Atrs)
         
-        上图为 c2f layer，可以发现 T-CSPLayer 事实上只是在 c2f layer 的基础上在bottleneck layer 之后添加了一个 Max-Sigmoid Attention，其使用 paddle 实现的代码如下:
+        上图为 c2f layer，可以发现 T-CSPLayer 事实上只是在 c2f layer 的基础上在 bottleneck layer 之后添加了一个 Max-Sigmoid Attention，其使用 paddle 实现的代码如下:
 
         ```python
         class MaxSigmoidAttnBlock(nn.Layer):
@@ -174,7 +174,7 @@
         
         为了解释为什么使用 Max-Sigmoid Attention，并且为什么要取最大值，让我们回顾一下背景。首先 TextBackbone clip 会将输入的 n 个文本编码成 n 个对应的向量。然后，通过计算文本嵌入与图像嵌入的内积得到它们的相似度作为注意力权重。我们的目标是找到与这 n 个文本编码中任意一个最相似的特征图区域，并将其赋予较高的权重。因此只需要在文本嵌入数量这一维度上取最大值，就能够实现这样的效果（如代码所示）。
     
-    3.  I-Pooling Attention
+    2.  I-Pooling Attention
   
         将三个不同尺度的图片特征使用池化(使用 nn.AdaptiveMaxPool2D 实现)下采样到 $3\times3$ 的大小后 flatten 并 concat。与文本嵌入作 multihead-attention，如下式：
 
@@ -271,9 +271,9 @@
                 return x * self.scale + text_features
         ```
         
-    4.  Re-parameterization
+    3.  Re-parameterization
 
-        为什么这个模块叫 Re-parameterizable Vision-Language PAN 捏，在Prompt-then-detect paradigm 小节中也提到了可以将离线词表重参数化为Vision-Language PAN 层的参数。当推理的词表是固定的时候，此时 text encoder 的输出是固定的，即 $W \in R^{C'\times D}$，C&rsquo;是离线词表的大小（即文本个数），D 是 embedding 的维度。此时可以对 T-CSPLayer 和 I-Pooling Attention 层进行重参数化。
+        为什么这个模块叫 Re-parameterizable Vision-Language PAN 捏，在 Prompt-then-detect paradigm 小节中也提到了可以将离线词表重参数化为 Vision-Language PAN 层的参数。当推理的词表是固定的时候，此时 text encoder 的输出是固定的，即 $W \in R^{C'\times D}$，C&rsquo;是离线词表的大小（即文本个数），D 是 embedding 的维度。此时可以对 T-CSPLayer 和 I-Pooling Attention 层进行重参数化。
         
         1.  T-CSPLayer 的重参数化
       
@@ -292,12 +292,11 @@
             
             ![img](https://private-user-images.githubusercontent.com/93063038/336473464-3625dd2d-e5d0-4fc4-89da-a562669dd367.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MTc1MDg4MTgsIm5iZiI6MTcxNzUwODUxOCwicGF0aCI6Ii85MzA2MzAzOC8zMzY0NzM0NjQtMzYyNWRkMmQtZTVkMC00ZmM0LTg5ZGEtYTU2MjY2OWRkMzY3LnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNDA2MDQlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjQwNjA0VDEzNDE1OFomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTEyNmZmNjk0MzdjMWU1MzMwMDlmYjEwNzRmN2MzOWU3MjQ3MDhlYzlkOWNmY2ZlNjZmMzdmMmMzMDNlYWYwNWMmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0JmFjdG9yX2lkPTAma2V5X2lkPTAmcmVwb19pZD0wIn0.aznTKrtbx1NWnomORVnkNHq0Cg_PjwKyranJReBmb70)
             
-            呀？左括号呢，dim=-1 是针对哪个操作。什么罐头我说。。。
-            
+            呀？左括号呢，dim=-1 是针对哪个操作...
             这儿应该也是与 T-CSPLayer 一样将文本特征部分重参数化为卷积或者 linear 层（？），毕竟其中涉及 W 的操作都是与 X 做矩阵乘法。（官方代码仓库暂时也没有公布重参数化相关的代码）
-4.  Head
+3.  Head
 
-    在YOLOv8中 head 部分采用了解耦的检测头，分别用于预测类别（分类）和边界框（回归）。YOLO-World中也使用了类似的解耦检测头，但它不再做类别预测的分类任务，而是用于获取 object embedding。通过解耦检测头得到 object embedding 与边界框，随后，通过文本对比头（text contrastive head）得到 object embedding 与文本特征的相似度。
+    在 YOLOv8 中 head 部分采用了解耦的检测头，分别用于预测类别（分类）和边界框（回归）。YOLO-World 也使用了类似的解耦检测头，但它不再做类别预测的分类任务，而是用于获取 object embedding。通过解耦检测头得到 object embedding 与边界框，随后，通过文本对比头（text contrastive head）得到 object embedding 与文本特征的相似度。
 
 <a id="orgd6d582b"></a>
 
@@ -307,7 +306,7 @@ totle loss 如下：
 
 $$\mathcal{L}(I)=\mathcal{L}_{\text {con }}+\lambda_I \cdot(\mathcal{L}\_{\text {iou}}+\mathcal{L}\_{\mathrm{dff}})$$
 
-其中 $\mathcal{L}_{\text {con }}$ 是针对语义的 region-text 对比损失，通过对object-text（region-text）的相似性和 object-text assignments(使用 TOOD 中的 task-aligned label assignment 得到) 做交叉熵构建。 $\mathcal{L}\_{\text {iou}}$ 与 $\mathcal{L}\_{\mathrm{dff}}$ 是针对 boundingbox 的损失(与 yolov8 相同)。
+其中 $\mathcal{L}_{\text {con }}$ 是针对语义的 region-text 对比损失，通过对 object-text（region-text）的相似性和 object-text assignments (使用 TOOD 中的 task-aligned label assignment 得到) 做交叉熵构建。 $\mathcal{L}\_{\text {iou}}$ 与 $\mathcal{L}\_{\mathrm{dff}}$ 是针对 boundingbox 的损失(与 yolov8 相同)。
 
 
 <a id="org78433b0"></a>
@@ -327,8 +326,7 @@ $$\mathcal{L}(I)=\mathcal{L}_{\text {con }}+\lambda_I \cdot(\mathcal{L}\_{\text 
 
 ## Contribution
 1.  提出了高效的实时开放词汇集目标检测算法 YOLO-World。
-2.  提出 Re-parameterizable Vision-Language PAN 连接视觉与语言特征以及
-    region-text 的对比预训练的模式。
+2.  提出 Re-parameterizable Vision-Language PAN 连接视觉与语言特征以及 region-text 的对比预训练的模式。
 3.  提出 prompt-then-detect 的范式，配合 RepVL-PAN 提升了推理速度。
 4.  表现出了强大的 zero-shot 能力并在 LVIS 数据集上达到了 35.4 AP 和 52.0 的 FPS.
 
