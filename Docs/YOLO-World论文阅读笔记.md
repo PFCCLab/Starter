@@ -68,11 +68,11 @@
 
     既然是多模态的方法自然少不了跨模态特征之间的交互与对齐，YOLO-World 的 neck 部分为 Re-parameterizable Vision-Language PAN，使用 Text-guided CSPLayer 替换 yolov8 中的 c2f layer 完成实现文本特征对图像特征的增强，加入 Image-Pooling Attention 实现图像特征对文本特征的增强。通过这两个模块实现了多模态特征的交互与对齐。
     
-    ![img](https://private-user-images.githubusercontent.com/93063038/336705256-0537a6e7-3c67-4a55-9523-c70ce1a8c396.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MTc1Njc0NTksIm5iZiI6MTcxNzU2NzE1OSwicGF0aCI6Ii85MzA2MzAzOC8zMzY3MDUyNTYtMDUzN2E2ZTctM2M2Ny00YTU1LTk1MjMtYzcwY2UxYThjMzk2LnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNDA2MDUlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjQwNjA1VDA1NTkxOVomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTYxMDIwODQ4MDQxNzU4ZDgyMTllZTIzZGZlMDhjN2JhOGZhMTY4YTY1NWE1MjQ5YmQ5YmU4NjM2N2ZjNzQ1NGYmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0JmFjdG9yX2lkPTAma2V5X2lkPTAmcmVwb19pZD0wIn0.8HbCO12izYpe_z9zX93m0RhMWD5SqkZ51GNYEJJ41GI)
+    ![img](https://github.com/InsaneOnion/oOoOo/assets/93063038/d627567d-9ec9-42c4-9f6d-9fc6d3549683)
     
     1.  T-CSPLayer
     
-        ![img](https://private-user-images.githubusercontent.com/93063038/336705883-de324340-a7f7-45f1-9f19-08e4122506f0.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MTc1Njc2MjUsIm5iZiI6MTcxNzU2NzMyNSwicGF0aCI6Ii85MzA2MzAzOC8zMzY3MDU4ODMtZGUzMjQzNDAtYTdmNy00NWYxLTlmMTktMDhlNDEyMjUwNmYwLnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNDA2MDUlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjQwNjA1VDA2MDIwNVomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPWMxZDMwNmViYjE0MzIxM2VjMmRiNGNiOThjZjdiNGY1NzZiNDk0NmI4MWIzZmNlZTY1MmI1MWRhMjE3MzhmZDcmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0JmFjdG9yX2lkPTAma2V5X2lkPTAmcmVwb19pZD0wIn0.kny7Pw14WMIWQekvJqog1ySlfOeObRnqDzr6tLjHf10)
+        ![img](https://github.com/InsaneOnion/oOoOo/assets/93063038/26cf2737-6fd9-49ad-807d-d7639a11236c)
         
         上图为 c2f layer，可以发现 T-CSPLayer 事实上只是在 c2f layer 的基础上在 bottleneck layer 之后添加了一个 Max-Sigmoid Attention，其使用 paddle 实现的代码如下:
 
@@ -290,7 +290,7 @@
     
             这里有点难绷，论文中给出的重参数化后的公式显然有问题
             
-            ![img](https://private-user-images.githubusercontent.com/93063038/336705136-dc691c07-529f-4bc9-8d79-0f1f76fe94b8.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MTc1Njc0MjMsIm5iZiI6MTcxNzU2NzEyMywicGF0aCI6Ii85MzA2MzAzOC8zMzY3MDUxMzYtZGM2OTFjMDctNTI5Zi00YmM5LThkNzktMGYxZjc2ZmU5NGI4LnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNDA2MDUlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjQwNjA1VDA1NTg0M1omWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPWMyMTZmMmQ0NjRhNGJlZjBhM2JmYTY3YzJjOGU0M2VmNWUwMGFlNjYyYzNlODJhOTVlMzFhODkzZmVhNDA2MmYmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0JmFjdG9yX2lkPTAma2V5X2lkPTAmcmVwb19pZD0wIn0.LAbS2fiQaX0-WwVfU3lovxYzz1e4LoWnhaSiD6THApM)
+            ![img](https://github.com/InsaneOnion/oOoOo/assets/93063038/e42ba5f0-31ee-4958-b313-4da49003d09b)
             
             呀？左括号呢，dim=-1 是针对哪个操作...
             这儿应该也是与 T-CSPLayer 一样将文本特征部分重参数化为卷积或者 linear 层（？），毕竟其中涉及 W 的操作都是与 X 做矩阵乘法。（官方代码仓库暂时也没有公布重参数化相关的代码）
@@ -302,7 +302,7 @@
 
 ### Loss
 
-totle loss 如下：
+total loss 如下：
 
 $$\mathcal{L}(I)=\mathcal{L}_{\text {con }}+\lambda_I \cdot(\mathcal{L}\_{\text {iou}}+\mathcal{L}\_{\mathrm{dff}})$$
 
