@@ -15,19 +15,14 @@
 
 
 ## 飞桨启航计划简介
-💡 **Tip**：
-  1. 想快速了解活动内容  ➡️ [简要活动说明](https://www.canva.cn/design/DAF-t5Ddr1Y/e27q_Kp5CRm8tF1uT6yg0g/view?utm_content=DAF-t5Ddr1Y&utm_campaign=designshare&utm_medium=link&utm_source=editor)  
-  2. 本期启航计划线上说明会 ➡️ [腾讯会议录播](https://meeting.tencent.com/v2/cloud-record/share?id=c556f70e-69a3-4b1d-aa93-9c372bad715c&from=3&is-single=false&record_type=2)
 
 **「启航计划」** 是 **百度飞桨社区** 发起的远程项目，也是「护航计划」的前置活动（不了解护航计划请看这里 ➡️ [护航计划说明](https://github.com/PFCCLab/Camp)）。我们以开展**集训营**的形式，鼓励开发者积极参与开源项目，以此提升自己的代码实践能力，与社区共同成长 💪。
 
-开发者提交申请材料并通过后，将会参与为期**2个月**密集的集训项目，目标是尽可能多且高质量地完成快乐开源活动中的任务 ➡️ [#61482]（https://github.com/PaddlePaddle/Paddle/issues/61482） 。
+开发者提交申请材料并通过后，将会参与为期**2个月**密集的集训项目，目标是尽可能多且高质量地完成快乐开源活动中的任务 ➡️ [#61482](https://github.com/PaddlePaddle/Paddle/issues/61482) 。
 
 集训期间，我们会提供精心设计的课程辅导 🧑🏻‍💻、相应的研发支持、随时随地都能使用的**线上 V100 开发环境** 🔧（申请方式看这里 ➡️ [飞桨线上开发环境——AI Studio](https://github.com/PaddlePaddle/community/tree/master/pfcc/call-for-contributions#%E9%A3%9E%E6%A1%A8%E7%BA%BF%E4%B8%8A%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83ai-studio)）以帮助学员更好地融入项目，不断提升技术水平。我们鼓励学员积极互动和交流，希望每位学员都能够在集训期结束时取得优异的成绩并成功结营。
 
 完成「启航计划」的学员将有机会获得丰厚的奖励 🎁 和荣誉证书 📃。此外，表现出色的开发者还有机会成为「护航计划」的潜在候选人，进一步参与到更具挑战性的任务中。我们期待与你一同踏上这个激动人心的学习和成长之旅 ！快来加入我们吧～～ 💓 
-
-[⛵ 本期启航计划活动issue](https://github.com/PaddlePaddle/Paddle/issues/62347)
 
 > [!IMPORTANT]  
 > 与「护航计划」的区别：
