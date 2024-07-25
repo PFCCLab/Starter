@@ -17,4 +17,4 @@
 ### 未来双周计划
 
 1. 认领并完成报错日志体系优化
-2. 认领并开始 https://github.com/PaddlePaddle/Paddle/pull/66491
+2. 认领并开始 https://github.com/PaddlePaddle/Paddle/issues/63303
