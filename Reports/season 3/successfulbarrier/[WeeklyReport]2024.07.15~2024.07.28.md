@@ -8,18 +8,9 @@
 
 1. **合入文档修改PR**
 
-   - xxx
-   - xxx
-
 2. **完成Paddle编译任务**
 
-   - xxx
-   - xxx
-
 3. **完成stable diffusion训练推理任务**
-
-   - xxx
-   - xxx
 
 3. **问题疑惑与解答**
 
