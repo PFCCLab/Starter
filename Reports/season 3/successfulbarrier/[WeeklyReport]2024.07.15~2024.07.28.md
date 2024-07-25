@@ -14,12 +14,12 @@
 2. **完成Paddle编译任务**
 
    - xxx
-   - xxx:
+   - xxx
 
 3. **完成stable diffusion训练推理任务**
 
    - xxx
-   - xxx:
+   - xxx
 
 3. **问题疑惑与解答**
 
