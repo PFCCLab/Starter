@@ -2,8 +2,8 @@
 
 ### 本双周工作
 
-1. **PADDLE框架的pir推全任务**
-   提出5个PR，合并5个PR
+1. **PADDLE框架的pir推全任务** 提出5个PR，合并5个PR
+
    [test_clip_grad_norm_.py](https://github.com/PaddlePaddle/Paddle/pull/66223)
 
    [test_nonzero_api.py](https://github.com/PaddlePaddle/Paddle/pull/66237)
