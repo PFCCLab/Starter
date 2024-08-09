@@ -14,4 +14,5 @@
 2. 详细阅读paddlepaddle的各种组件来迁移这个模型
 
 ### 详细周报链接：
+https://github.com/PFCCLab/Starter/pull/317
 
