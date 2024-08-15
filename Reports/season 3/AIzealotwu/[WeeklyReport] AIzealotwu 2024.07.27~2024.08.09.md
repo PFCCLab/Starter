@@ -16,3 +16,8 @@
 ### 详细周报链接：
 https://github.com/PFCCLab/Starter/pull/317
 
+### 导师review:
+当前进展合理顺利，一个可以借鉴的工具
+torch代码自动转paddle工具：
+https://github.com/PaddlePaddle/PaConvert
+
