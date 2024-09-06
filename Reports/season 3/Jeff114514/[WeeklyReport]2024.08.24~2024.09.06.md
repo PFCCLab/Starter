@@ -8,11 +8,7 @@ PIR单测推全、报错信息优化、Ruff新规则引入、CINN编译器接口
 
 ### 本双周工作
 
-1. 完成CINN编译器接口扩展任务，提交7个PR，包含4个简单难度，4个中等难度，3个复杂难度
-   https://github.com/PaddlePaddle/Paddle/pull/66619
-   https://github.com/PaddlePaddle/Paddle/pull/66827
-   https://github.com/PaddlePaddle/Paddle/pull/67337
-   https://github.com/PaddlePaddle/Paddle/pull/67507
+1. 完成CINN编译器接口扩展任务，提交3个复杂难度
    https://github.com/PaddlePaddle/Paddle/pull/67814
    https://github.com/PaddlePaddle/Paddle/pull/67858
    https://github.com/PaddlePaddle/Paddle/pull/67875
