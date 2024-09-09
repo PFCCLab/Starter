@@ -8,7 +8,7 @@
 
 2. 同步tan算子文档 <https://github.com/PaddlePaddle/docs/pull/6855>
 
-3. sinh_coo/sinh_csr算子开发中 <https://github.com/PaddlePaddle/Paddle/pull/62678/files>
+3. 完成sinh_coo/sinh_csr算子复数运算逻辑 <https://github.com/PaddlePaddle/Paddle/pull/67976>
 
 ### 未来双周计划
 
