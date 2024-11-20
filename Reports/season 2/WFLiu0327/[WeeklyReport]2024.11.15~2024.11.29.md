@@ -19,6 +19,10 @@
    - 完成paddle的云端编译热身任务
    - 完成paddlemix中Stable Diffusion的训练和推理测试
 
+### 遇到的问题（已解决）
+   1. git pull request不熟悉
+   2. cmake操作的不熟悉导致的编译失败
+
 ### 未来双周计划
 
 1. 开始做PaddleMix热身开源活动中NO.20，完善SD3单侧的pipeline
