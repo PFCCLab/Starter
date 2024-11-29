@@ -21,7 +21,7 @@ PaddleMIX 快乐开源-多模态理解-17-Chameleon模型推理
 
    - 已完成热身任务Stable-Diffusion 训练推理打卡
 
-3. **问题疑惑与解答**  
+4. **问题疑惑与解答**  
 
    - 问题 关于paddlemix中推理对齐的样例和格式要求
 
