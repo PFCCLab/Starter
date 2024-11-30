@@ -16,7 +16,7 @@ Github ID：rich04lin
    - https://github.com/PaddlePaddle/Paddle/pull/69664
    - https://github.com/PaddlePaddle/Paddle/pull/69695
    - https://github.com/PaddlePaddle/Paddle/pull/69737
-   - 
+   - https://github.com/PaddlePaddle/Paddle/pull/69847
 
 
 
