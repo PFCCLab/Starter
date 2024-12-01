@@ -4,8 +4,8 @@
 
 ### 开发中的快乐开源任务
 
-   - 任务typos工具引入计划 C-[1-3]
-   - Mono-InternVL-2B推理对齐 [16]
+   - typos工具引入计划 C-[1-3]
+   - PaddleMix快乐开源-16-Mono-InternVL-2B推理对齐
 
 ### 本双周工作
 
