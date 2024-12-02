@@ -11,7 +11,7 @@
 1. **任务 1 给飞桨 API 文档增加图例，完成你的第一个 PR**
 
    - 认领scatter的API图例添加任务，并成功合入中、英文文档图例，并通过邮件打卡
-   - PaddlePaddle/Paddle#6973
+   - PaddlePaddle/docs#6973
 
 2. **任务 2 完成Paddle本地编译**
 
