@@ -21,4 +21,4 @@ PaddleMIX 快乐开源-多模态理解-17-Chameleon模型推理
 
 - 开始着手PaddleMIX推理对齐任务的具体实现
 - 熟练掌握paddlemix的使用方法
-- 深入学习模型推理工作流程
+- 深入学习模型推理工作流程" > "[WeeklyReport]2024.11.29~2024.12.13.md"
