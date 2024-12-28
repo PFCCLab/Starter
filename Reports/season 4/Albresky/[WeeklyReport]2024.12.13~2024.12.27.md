@@ -11,7 +11,6 @@
    - 提交 PR [[CINN][Add Backend Pass Comment No.5] Add comment for ir_simplify](https://github.com/PaddlePaddle/Paddle/pull/70453)
    - 提交 PR [[Docathon][Add API Legend No.16] Add legend and update doc for atleast_2d -part](https://github.com/PaddlePaddle/Paddle/pull/70242)
 
-完成 PR
 
 ### 本双周工作
 
