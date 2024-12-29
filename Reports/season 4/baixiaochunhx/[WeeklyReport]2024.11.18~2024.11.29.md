@@ -13,13 +13,8 @@ Molmo 模型推理	模型复现	Molmo-7B-D-0924推理对齐
 2. **Stable Diffusion的跑通**
 
 3. **问题安装安装whl包。（pip3.7 install /python/dist/paddlepaddle-0.0.0-cp37-cp37m-linux_x86_64.whl执行完成后截图。）报错**
-<<<<<<< HEAD
    问题：这里需要和自己之前使用的python版本挂钩？
    答案：aistudio@jupyter-9616507-8609912:~/Paddle/build$ pip3 install ~/Paddle/build/python/dist/paddlepaddle-0.0.0-cp38-cp38-linux_x86_64.whl
-=======
-   问题：这里需要和自己之前使用的python版本挂钩：
-      答案：aistudio@jupyter-9616507-8609912:~/Paddle/build$ pip3 install ~/Paddle/build/python/dist/paddlepaddle-0.0.0-cp38-cp38-linux_x86_64.whl
->>>>>>> 2b38ad6 (USERNAME add 2024.mm1.dd1~2024.mm2.dd2 WeeklyReport)
 
 ### 未来双周计划
 等期末考试后
