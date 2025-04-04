@@ -27,3 +27,4 @@ https://github.com/PaddlePaddle/docs/pull/7154
 
 ### 未来双周计划
 完成PaddleSpeech补全工作
+完成paddlemix任务
