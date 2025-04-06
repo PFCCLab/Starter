@@ -15,4 +15,8 @@ PaddleMIX：飞桨多模态大模型快乐开源活动Jina-CLIP-V2推理
 
 ### 未来双周计划
 
+<<<<<<< HEAD
 1. 模型复现任务：完成Jina-CLIP-V2推理的任务，PR Merge
+=======
+1. 模型复现任务：继续进行Jina-CLIP-V2推理的任务，争取提交PR Merge
+>>>>>>> 4333930 (BaolanChen add 2024.12.14~2024.12.27)
