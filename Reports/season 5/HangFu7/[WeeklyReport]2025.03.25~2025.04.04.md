@@ -3,6 +3,7 @@
 
 本双周工作
 已完成文档打卡：https://github.com/PaddlePaddle/docs/pull/7169
+
 初始编译
 
 未来双周计划
