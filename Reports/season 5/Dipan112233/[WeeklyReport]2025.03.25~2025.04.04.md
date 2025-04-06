@@ -16,26 +16,13 @@
    - 后续cmake使用
    - 针对于stable diffusion之前在报名发送，认证成功
 
-2. **任务 Y**
+2. **问题疑惑与解答**
 
-   - xxx
-   - xxx:
-     1. xxx
-     2. xxx
-     3. xxx
+   - 问题 针对编译ai studio为什么安装不上virtualenv？
 
-3. **问题疑惑与解答**
 
-   - 问题 a？
-
-     答：xxx
-
-   - 问题 b？
-
-     答：xxx
 
 ### 未来双周计划
 
-1. xxx
-2. xxx
-3. xxx
+1. 将paddle在云端完成编译，理解cmake等概念
+2. 期望自己能够合并在一个pr
