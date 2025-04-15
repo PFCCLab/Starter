@@ -10,13 +10,12 @@ NO.7 DocOwl2 模型推理
 ### 本双周工作
 
 1. **任务 - PaddleMIX 快乐开源活动 (2025 H1) #1046 NO.7 DocOwl2 模型推理**
-   学习了教程：基于 PaddleMIX 实现 MiniCPM-V-2_6 多模态模型推理
+   - 学习了教程：基于 PaddleMIX 实现 MiniCPM-V-2_6 多模态模型推理
    https://aistudio.baidu.com/projectdetail/9013948?forkThirdPart=1
+   - 快乐开源活动 (2025 H1) #1046 NO.7 DocOwl2 模型推理
+   - 根据教程尝试对 DocOwl2 模型做权重转换。仍在尝试中。
 
-快乐开源活动 (2025 H1) #1046 NO.7 DocOwl2 模型推理
-根据教程尝试对 DocOwl2 模型做权重转换。仍在尝试中。
-
-3. **sad 问题疑惑与解答**
+3. **问题疑惑与解答**
 
    - 在将基于 pytorch 的模型迁移到 paddle 平台上实现过程中遇到了许多问题。例如：
      1. 不知道我模仿教程中做的权重转换是否正确
