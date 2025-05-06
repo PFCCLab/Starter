@@ -2,7 +2,7 @@
 狄攀
 
 ### 开发中的快乐开源任务  
-- 进行PaddlePaddle 编译热身打卡活动，运行cmake .. -DPY_VERSION=3.10 -DWITH_GPU=ON -DPYTHON_EXECUTABLE=$(which python) -DPYTHON_INCLUDE_DIR=$(python -c "from distutils.sysconfig import get_python_inc; print(get_python_inc())") -DPYTHON_LIBRARY=$(python -c "import sysconfig; print(sysconfig.get_config_var('LIBDIR'))") 而能出结果，不在报错，在跑make -j$(nproc)，但报错了
+- 进行PaddlePaddle 编译热身打卡活动，运行cmake .. -DPY_VERSION=3.10 -DWITH_GPU=ON -DPYTHON_EXECUTABLE=$(which python) -DPYTHON_INCLUDE_DIR=$(python -c "from distutils.sysconfig import get_python_inc; print(get_python_inc())") -DPYTHON_LIBRARY=$(python -c "import sysconfig; print(sysconfig.get_config_var('LIBDIR'))") 而能出结果，不在报错，在跑make -j$(nproc)，但报错了,gpt说内存不足，之后拿2卡试试
 
 ### 本双周工作  
 
