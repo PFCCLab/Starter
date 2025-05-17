@@ -137,7 +137,7 @@ https://github.com/PaddlePaddle/PaddleNLP/pull/10460
 
 https://github.com/PaddlePaddle/PaddleNLP/pull/10505
 
-https://github.com/PaddlePaddle/PaddleNLP/pull/10506（未合入）
+https://github.com/PaddlePaddle/PaddleNLP/pull/10506 （未合入）
 
 
 
