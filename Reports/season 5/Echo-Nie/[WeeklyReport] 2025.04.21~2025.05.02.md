@@ -49,7 +49,7 @@
 
    
 
-3. **Speech中synthesize_e2e.sh参数表述不清 ** 
+3. **Speech中synthesize_e2e.sh参数表述不清** 
 
    - update the stage of run.sh and synthesize_e2e.sh：https://github.com/PaddlePaddle/PaddleSpeech/pull/4057 （已合入）
 
