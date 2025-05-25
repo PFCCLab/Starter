@@ -29,7 +29,7 @@
 
 4. **PaddleNLP** 
 
-   - 扩充[预训练文档](https://github.com/PaddlePaddle/PaddleNLP/tree/develop/llm#1-预训练)，PR：https://github.com/PaddlePaddle/PaddleNLP/pull/10506 （未合入）
+   - 扩充[预训练文档](https://github.com/PaddlePaddle/PaddleNLP/tree/develop/llm#1-预训练)，PR：https://github.com/PaddlePaddle/PaddleNLP/pull/10506 （已合入）
 
    
 
@@ -39,7 +39,7 @@
 
 
 
-### 本期提交的所有PR
+### 本期合入的所有PR
 
 #### PaddleSpeech
 
@@ -137,7 +137,7 @@ https://github.com/PaddlePaddle/PaddleNLP/pull/10460
 
 https://github.com/PaddlePaddle/PaddleNLP/pull/10505
 
-https://github.com/PaddlePaddle/PaddleNLP/pull/10506 （未合入）
+https://github.com/PaddlePaddle/PaddleNLP/pull/10506 
 
 
 
