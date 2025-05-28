@@ -11,7 +11,7 @@
    - **任务1 - Add Inplace & Deprecated API** 
      
      1. No.28-31 : https://github.com/PaddlePaddle/docs/pull/7263 （已合入）
-     2. No.33 : https://github.com/PaddlePaddle/docs/pull/7264（已合入）
+     2. No.33 : https://github.com/PaddlePaddle/docs/pull/7264 （已合入）
      3. No.8: https://github.com/PaddlePaddle/docs/pull/7268 （已合入）
      4. No.32: https://github.com/PaddlePaddle/docs/pull/7271 （已合入）
      
@@ -19,14 +19,14 @@
      
    - **任务2 - Deprecated API** 
      
-     1. del No3-4: https://github.com/PaddlePaddle/docs/pull/7283（已合入）
-     2. del No6-7 : https://github.com/PaddlePaddle/docs/pull/7284（已合入）
+     1. del No3-4: https://github.com/PaddlePaddle/docs/pull/7283 （已合入）
+     2. del No6-7 : https://github.com/PaddlePaddle/docs/pull/7284 （已合入）
    
    
    
    - **任务3 - 飞桨主框架** 
-     1. 【删除 + 修改】原 fluid 部分的 loss_function：https://github.com/PaddlePaddle/docs/pull/7227（已合入）
-     2. 【删除 + 修改】原 fluid 部分的 pooling：https://github.com/PaddlePaddle/docs/pull/7228（已合入）
+     1. 【删除 + 修改】原 fluid 部分的 loss_function：https://github.com/PaddlePaddle/docs/pull/7227 （已合入）
+     2. 【删除 + 修改】原 fluid 部分的 pooling：https://github.com/PaddlePaddle/docs/pull/7228 （已合入）
    
    
    
@@ -34,12 +34,12 @@
 
    - Paddle 高扩展中间表示PIR适配
 
-     1. 【No. 7 slm/examples/information_extraction】PR 链接： https://github.com/PaddlePaddle/PaddleNLP/pull/10470（已合入）
-     2. 【No. 8 slm/examples/lexical_analysis】PR 链接： https://github.com/PaddlePaddle/PaddleNLP/pull/10469（已合入）
-     3. 【No.23 slm/model_zoo/ernie-vil2.0】PR链接： https://github.com/PaddlePaddle/PaddleNLP/pull/10481（已合入）
-     4. 【No. 24 tests/test_tipc/ernie_text_matching】PR 链接：https://github.com/PaddlePaddle/PaddleNLP/pull/10466（已合入）
-     5. 【No. 25 slm/model_zoo/uie】PR 链接：https://github.com/PaddlePaddle/PaddleNLP/pull/10482（已合入）
-     6. 【No. 33 tests/test_tipc/ernie_text_matching】PR 链接：https://github.com/PaddlePaddle/PaddleNLP/pull/10460（已合入）
+     1. 【No. 7 slm/examples/information_extraction】PR 链接： https://github.com/PaddlePaddle/PaddleNLP/pull/10470 （已合入）
+     2. 【No. 8 slm/examples/lexical_analysis】PR 链接： https://github.com/PaddlePaddle/PaddleNLP/pull/10469 （已合入）
+     3. 【No.23 slm/model_zoo/ernie-vil2.0】PR链接： https://github.com/PaddlePaddle/PaddleNLP/pull/10481 （已合入）
+     4. 【No. 24 tests/test_tipc/ernie_text_matching】PR 链接：https://github.com/PaddlePaddle/PaddleNLP/pull/10466 （已合入）
+     5. 【No. 25 slm/model_zoo/uie】PR 链接：https://github.com/PaddlePaddle/PaddleNLP/pull/10482 （已合入）
+     6. 【No. 33 tests/test_tipc/ernie_text_matching】PR 链接：https://github.com/PaddlePaddle/PaddleNLP/pull/10460 （已合入）
 
      
 
@@ -49,9 +49,9 @@
 
    
 
-3. **Speech中synthesize_e2e.sh参数表述不清 ** 
+3. **Speech中synthesize_e2e.sh参数表述不清** 
 
-   - update the stage of run.sh and synthesize_e2e.sh：https://github.com/PaddlePaddle/PaddleSpeech/pull/4057（已合入）
+   - update the stage of run.sh and synthesize_e2e.sh：https://github.com/PaddlePaddle/PaddleSpeech/pull/4057 （已合入）
 
    
 
