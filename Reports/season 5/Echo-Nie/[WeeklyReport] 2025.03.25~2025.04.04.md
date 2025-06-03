@@ -14,12 +14,11 @@ PaddleSpeech 快乐开源活动 (2025 H1)
 
 ### 本双周工作
 
-1. **任务 - 热身打卡 **
-
+1. **任务 - 热身打卡**
    - 完成文档打卡任务（PR 链接：https://github.com/PaddlePaddle/docs/pull/7097）
    - 完成 paddle 本地编译打卡任务（已确认打卡成功）
    - 完成 Stable-Difussion 训练推理打卡任务（已确认打卡成功）
-
+   
 2. **任务 - 合入的 PR**
 
    - 维护飞桨真经 No.27： https://github.com/PaddlePaddle/docs/pull/7135
@@ -35,7 +34,7 @@ PaddleSpeech 快乐开源活动 (2025 H1)
    - 【Docathon】修复文档注解
      1. No.1-4： https://github.com/PaddlePaddle/docs/pull/7132
      2. 负责 review 其他同学的 PR。但是由于 No.5-7 在 review 的时候没有注意到问题，后来 o 师傅提醒之后，重新提交了一份 PR，之后会更仔细审查，尽量不出问题。（PR: https://github.com/PaddlePaddle/docs/pull/7164)
-     2. No.40,44：https://github.com/PaddlePaddle/docs/pull/7178；https://github.com/PaddlePaddle/docs/pull/7177；
+     2. No.40,44：https://github.com/PaddlePaddle/docs/pull/7178； https://github.com/PaddlePaddle/docs/pull/7177
 
 
 
