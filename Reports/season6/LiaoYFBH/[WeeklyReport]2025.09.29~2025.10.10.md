@@ -32,7 +32,7 @@
 
    - **问题 b？**如何处理PR冲突？
 
-     **答：**同步上游docs文档`develop`分支时，冲突涉及 hfft_cn.rst、irfft_cn.rst、irfftn_cn.rst 3 个文件，保留修改，删除冲突标记后 `git add` 并 `rebase --continue`。
+     **答：**同步上游docs文档`develop`分支时，冲突涉及 hfft_cn.rst、irfft_cn.rst、irfftn_cn.rst 3 个文件，保留修改，删除冲突标记后再进行提交。
 
 ### 未来双周计划
 
