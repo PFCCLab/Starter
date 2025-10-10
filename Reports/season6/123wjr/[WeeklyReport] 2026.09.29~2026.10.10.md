@@ -10,7 +10,7 @@
 ### 本双周工作
 
 1. **任务1 - Docathon中文文档格式日常修复**
-   - [Docathon] 中文文档格式日常修复 No.28-30： https://github.com/PaddlePaddle/docs/pull/xxx
+   - [Docathon] 中文文档格式日常修复 No.28-30：[#7501](https://github.com/PaddlePaddle/docs/pull/7501)
 
 ### 问题
 
