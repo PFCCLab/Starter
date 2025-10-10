@@ -34,8 +34,7 @@
 
 ### 未来双周计划
 
-1. xxx
-2. xxx
-3. xxx
+1. 完成打卡 Stable-Diffusion 训练推理
+2. 
 
-非常感谢@Echo-Nie, @YqGe585老师的指导！
+感谢[@Echo-Nie](https://github.com/Echo-Nie)，[@luotao1](https://github.com/luotao1)的指导。
