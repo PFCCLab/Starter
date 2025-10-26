@@ -11,6 +11,8 @@
    - [2100](https://github.com/PaddlePaddle/PaddleCustomDevice/pull/2100)
 
 3. **任务3 - PaddleMaterial 数据集适配**
+   处理tmQM数据集，将.xyz文件的几何结构信息和.csv文件特征属性融合为一个数据集用于训练，
+   同时出于模型适用性提供选择：”是否使用.q文件和.BO文件进行训练“，数据加载器脚本已在在MEGNet模型上测试
    #### 提交链接：
    - [#198](https://github.com/PaddlePaddle/PaddleMaterials/pull/198)
 
