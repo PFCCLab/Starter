@@ -3,7 +3,7 @@
 dh-Unicorn
 
 ### 本双周工作
-本周事情较多
+本双周事情较多
 
 完成了[Stable-Diffusion 训练推理](https://github.com/PaddlePaddle/PaddleMIX/issues/273)以及打卡。
 
