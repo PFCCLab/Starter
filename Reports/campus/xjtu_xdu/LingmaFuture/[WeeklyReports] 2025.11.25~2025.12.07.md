@@ -2,13 +2,13 @@
 
 陈岩
 
-### 开源贡献
+### 开发中的快乐开源任务
 
-* 参与 文档示例代码修复任务 #76545
-* 已合入 PR：[#76690](https://github.com/PaddlePaddle/Paddle/pull/76698)
+【HACKATHON 预备营】飞桨启航计划集训营（社团版） [#76500](https://github.com/PaddlePaddle/Paddle/issues/76500#issuecomment-3580683155)
 
 ### 本双周总结
 
+1. **文档示例代码修复任务 #76545**
 修复 lr scheduler 相关文档示例代码（Xdoctest）
 
 完成对 ExponentialDecay、InverseTimeDecay、NaturalExpDecay、PolynomialDecay、StepDecay 等五个学习率调度器示例的修复。
@@ -17,7 +17,7 @@
 
 根据 reviewer 意见多次迭代修改，并确保本地 pre-commit、xdoctest 测试全部通过。
 
-PR 已通过审核并成功合入主仓：#76698
+已合入 PR：[#76690](https://github.com/PaddlePaddle/Paddle/pull/76698)
 
 ### 下双周计划
 
