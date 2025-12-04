@@ -6,7 +6,7 @@
 
 【HACKATHON 预备营】飞桨启航计划集训营（社团版） [#76500](https://github.com/PaddlePaddle/Paddle/issues/76500#issuecomment-3580683155)
 
-### 本双周总结
+### 本双周工作
 
 1. **文档示例代码修复任务 #76545**
 修复 lr scheduler 相关文档示例代码（Xdoctest）
@@ -19,7 +19,7 @@
 
 已合入 PR：[#76690](https://github.com/PaddlePaddle/Paddle/pull/76698)
 
-### 下双周计划
+### 未来双周计划
 
 继续参与文档示例代码修复，尝试认领更复杂的 API 示例任务。
 
