@@ -18,16 +18,16 @@ Molmo 模型推理	模型复现	Molmo-7B-D-0924推理对齐
    •	存储：足够的存储空间（至少 50GB）用于模型文件和依赖。
 
 1.模型和处理器加载
-![alt text](image-1.png)
+![alt text](images/image-1.png)
 进行模型和处理器加载时候总是缺少文件，这里我使用ls ./autodl-fs/Molmo-7B-D-0924命令将文件列出来方便自己来进行查看，最后调试好了
-![alt text](image-2.png)
-![alt text](image-3.png)
+![alt text](images/image-2.png)
+![alt text](images/image-3.png)
 Load.py代码
-![alt text](image-4.png)
-![alt text](image-5.png)
-![alt text](image-6.png)
-![alt text](image-7.png)
-![alt text](image-8.png)
+![alt text](images/image-4.png)
+![alt text](images/image-5.png)
+![alt text](images/image-6.png)
+![alt text](images/image-7.png)
+![alt text](images/image-8.png)
 2.PyTorch转Paddle教程
 
 1. 模型概述
@@ -49,7 +49,7 @@ Molmo-7B-D-092 模型由以下两个核心部分组成：
    •	线性层权重转置：PaddlePaddle 中的线性层权重需要与 PyTorch 相反的维度顺序，通常需要进行转置。
    •	权重命名调整：PyTorch 和 PaddlePaddle 的命名规范可能不同，需要调整权重的命名以适配 PaddlePaddle。
 这个目前还没完成，抽空整理一下
-![alt text](image-9.png)
+![alt text](images/image-9.png)
 3. 代码转换注意事项
 1. 使用 PaConvert 工具进行初步转换
 3. 手动调整张量操作
@@ -93,16 +93,16 @@ Molmo 模型推理	模型复现	Molmo-7B-D-0924推理对齐
    •	存储：足够的存储空间（至少 50GB）用于模型文件和依赖。
 
 1.模型和处理器加载
-![alt text](image-1.png)
+![alt text](images/image-1.png)
 进行模型和处理器加载时候总是缺少文件，这里我使用ls ./autodl-fs/Molmo-7B-D-0924命令将文件列出来方便自己来进行查看，最后调试好了
-![alt text](image-2.png)
-![alt text](image-3.png)
+![alt text](images/image-2.png)
+![alt text](images/image-3.png)
 Load.py代码
-![alt text](image-4.png)
-![alt text](image-5.png)
-![alt text](image-6.png)
-![alt text](image-7.png)
-![alt text](image-8.png)
+![alt text](images/image-4.png)
+![alt text](images/image-5.png)
+![alt text](images/image-6.png)
+![alt text](images/image-7.png)
+![alt text](images/image-8.png)
 2.PyTorch转Paddle教程
 
 1. 模型概述
@@ -124,7 +124,7 @@ Molmo-7B-D-092 模型由以下两个核心部分组成：
    •	线性层权重转置：PaddlePaddle 中的线性层权重需要与 PyTorch 相反的维度顺序，通常需要进行转置。
    •	权重命名调整：PyTorch 和 PaddlePaddle 的命名规范可能不同，需要调整权重的命名以适配 PaddlePaddle。
 这个目前还没完成，抽空整理一下
-![alt text](image-9.png)
+![alt text](images/image-9.png)
 3. 代码转换注意事项
 1. 使用 PaConvert 工具进行初步转换
 3. 手动调整张量操作
