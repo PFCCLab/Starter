@@ -25,7 +25,7 @@
 
   - error_fix_try：
     - set _default_dtype only supports [float16, float32, float64, bfloat16], but received paddle.float32
-    - ![set _default_dtype only supports [float16, float32, float64, bfloat16], but received paddle.float32](error_paddle.float32.png)
+    - ![set _default_dtype only supports [float16, float32, float64, bfloat16], but received paddle.float32](images/error_paddle.float32.png)
   - 参考链接：
     - [【PaddleMIX 热身打卡】跑通 Stable-Diffusion 训练推理-Github](https://github.com/PaddlePaddle/PaddleMIX/issues/273)
     - [【PaddleMIX 热身打卡】跑通 Stable-Diffusion 训练推理 - 飞桨AI Studio星河社区](https://aistudio.baidu.com/projectdetail/7649127?channelType=0&channel=0)
