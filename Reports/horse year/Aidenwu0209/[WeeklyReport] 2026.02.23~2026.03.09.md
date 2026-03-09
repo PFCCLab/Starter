@@ -13,4 +13,4 @@ Aidenwu0209
 
 ### 详细周报链接：
 
-（待提交到 Starter 仓库后替换为 PR 链接）
+https://github.com/PFCCLab/Starter/pull/861
